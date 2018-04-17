@@ -1,0 +1,5 @@
+- implement visitor pattern for toCsv() methods instead of straight polymorphism
+- library shoulb be a singleton
+- test class should be managed via junit
+- java c'est le mal: passages par valeur a tout va....
+
