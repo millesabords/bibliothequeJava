@@ -42,6 +42,13 @@ public class Manuel extends Livre{
 		return toRet; 
 	}
 	
+    /* part of deep copy cloning
+     * @see java.lang.Object#clone()
+     */
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+    
 	/**
 	 * @return string
 	 */

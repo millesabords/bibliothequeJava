@@ -94,8 +94,19 @@ public class TestDocuments {
 		System.out.println("resultat: " + seekAndDestroy2.toString());
 		
 		jaimeLire.addListFromCSV("listeLivresTest.csv");
-		//System.out.println(jaimeLire.toString());
 		
 		jaimeLire.sauvegardeToCsv("dumpTest.csv");
+		
+		//System.out.println(jaimeLire.toString());
+		System.out.println("Testing clone functionnality");
+		Bibliotheque clonedBib = (Bibliotheque) jaimeLire.clone();
+		
+//		System.out.println(clonedBib);
+		clonedBib.getDocument(26).setTitre("Chuck Norris For President");
+		System.out.println("entree 27 de la bibliotheque clonee modifiee: le titre est maintenant 'Chuck Norris For President'");
+		System.out.println("entree 27 de la bibliotheque originale:");
+		System.out.println(jaimeLire.getDocument(26).toString());
+		System.out.println("entree 27 de la bibliotheque clonee:");
+		System.out.println(clonedBib.getDocument(26).toString());
 	}
 }

@@ -11,7 +11,7 @@ import controller.parseCSV;
  * Contient la liste des documetns de la bibliotheque
  *
  */
-public class Bibliotheque {
+public class Bibliotheque implements Cloneable{
 
 	public final static String newline = System.getProperty("line.separator");
 	
@@ -32,7 +32,7 @@ public class Bibliotheque {
 	public List<Document> getDocuments() {
 		return documents;
 	}
-
+	
 	/**
 	 * @param i
 	 * @return
@@ -87,6 +87,10 @@ public class Bibliotheque {
 		return false;
 	}
 
+	public void eraseAll() {
+		documents.clear();
+	}
+	
 	/**
 	 * @param titre
 	 * @return Livre
@@ -177,6 +181,36 @@ public class Bibliotheque {
 	 */
 	public Boolean sauvegardeToCsv(String csvFileName) {
 		return parseCSV.WriteDocument(csvFileName, this);
+	}
+	
+    /* necessary for deep copying
+     * @see java.lang.Object#clone()
+     */
+    public Object clone() {
+        Bibliotheque clonedBibliotheque = null;
+        try {
+            clonedBibliotheque = (Bibliotheque)super.clone();
+            clonedBibliotheque.deepCloneDocuments(this.documents);
+        }
+        catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+            return null;
+        }
+        
+        return clonedBibliotheque;
+    }
+
+	/**
+	 * @param newList
+	 * @throws CloneNotSupportedException
+	 */
+	public void deepCloneDocuments(List<Document> oldList) throws CloneNotSupportedException {
+		documents = new ArrayList<Document>();
+		//clonedBibliotheque.eraseAll();
+        for(Document doc : oldList) {
+         	System.out.print("ah");
+          	addDocument((Document) doc.clone());
+        }
 	}
 	
 	/* 

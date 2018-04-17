@@ -1,7 +1,7 @@
 package model;
 
 
-public abstract class Document {
+public abstract class Document implements Cloneable{
 	
 	private int numEnreg;
 	private String titre;
@@ -63,6 +63,13 @@ public abstract class Document {
 		toRet = "Ce livre s'appelle " + this.titre + ". Il a pour numéro d'enregistrement " + this.numEnreg + "\n";
 		return toRet;
 	}
+
+    /* part of deep copy cloning
+     * @see java.lang.Object#clone()
+     */
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 	
 	/**
 	 * @return string
