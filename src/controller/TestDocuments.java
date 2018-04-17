@@ -61,9 +61,8 @@ public class TestDocuments {
 		System.out.println("Etat final de la Bibliotheque apres avoir supprime 2 livres:");
 		System.out.println(jaimeLire);
 		
-		Affichage affichageManager = new Affichage();
-		affichageManager.afficherDocuments(jaimeLire.getDocuments());
-		affichageManager.afficherAuteurs(jaimeLire.getDocuments());
+		Affichage.afficherDocuments(jaimeLire.getDocuments());
+		Affichage.afficherAuteurs(jaimeLire.getDocuments());
 		
 		System.out.println("test fonction de recherche par titre: ('Serge Karamasov' puis 'Le mendiant, tome 2')");
 		Livre recherche1 = jaimeLire.rechercheParTitre("Serge Karamasov");
@@ -97,16 +96,21 @@ public class TestDocuments {
 		
 		jaimeLire.sauvegardeToCsv("dumpTest.csv");
 		
-		//System.out.println(jaimeLire.toString());
 		System.out.println("Testing clone functionnality");
 		Bibliotheque clonedBib = (Bibliotheque) jaimeLire.clone();
-		
-//		System.out.println(clonedBib);
 		clonedBib.getDocument(26).setTitre("Chuck Norris For President");
 		System.out.println("entree 27 de la bibliotheque clonee modifiee: le titre est maintenant 'Chuck Norris For President'");
 		System.out.println("entree 27 de la bibliotheque originale:");
 		System.out.println(jaimeLire.getDocument(26).toString());
 		System.out.println("entree 27 de la bibliotheque clonee:");
 		System.out.println(clonedBib.getDocument(26).toString());
+		
+		System.out.println("Testing tri par ordre lexicographique");
+		jaimeLire.triLexicographique();		
+		System.out.println(jaimeLire.toString());
+		
+		System.out.println("Test de l'interfaceage graphique");
+		Affichage f = new Affichage(jaimeLire);
+		f.setVisible(true);
 	}
 }

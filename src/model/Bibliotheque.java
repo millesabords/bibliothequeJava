@@ -2,9 +2,11 @@ package model;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+import controller.triParTitre;
 import controller.parseCSV;
 
 /**
@@ -227,4 +229,8 @@ public class Bibliotheque implements Cloneable{
 		
 		return res;
 	}	
+	
+	public void triLexicographique() {
+       Collections.sort(documents, new triParTitre());
+	}
 }

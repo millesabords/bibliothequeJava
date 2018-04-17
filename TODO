@@ -2,4 +2,4 @@
 - library shoulb be a singleton
 - test class should be managed via junit
 - java c'est le mal: passages par valeur a tout va....
-
+- est-ce que la classe Affichage est un helper de la classe bibliotheque? (sinon quel est l'interet...)
