@@ -65,8 +65,8 @@ public class TestDocuments {
 		Affichage.afficherAuteurs(jaimeLire.getDocuments());
 		
 		System.out.println("test fonction de recherche par titre: ('Serge Karamasov' puis 'Le mendiant, tome 2')");
-		Livre recherche1 = jaimeLire.rechercheParTitre("Serge Karamasov");
-		Livre recherche2 = jaimeLire.rechercheParTitre("Le mendiant, tome 2");
+		Document recherche1 = jaimeLire.rechercheParTitre("Serge Karamasov");
+		Document recherche2 = jaimeLire.rechercheParTitre("Le mendiant, tome 2");
 		if(recherche1 == null)
 			System.out.println("voici le resultat de la recherche1: null");
 		else
@@ -94,7 +94,7 @@ public class TestDocuments {
 		
 		jaimeLire.addListFromCSV("listeLivresTest.csv");
 		
-		jaimeLire.sauvegardeToCsv("dumpTest.csv");
+		jaimeLire.sauvegardeToCsv("libraryDump.csv");
 		
 		System.out.println("Testing clone functionnality");
 		Bibliotheque clonedBib = (Bibliotheque) jaimeLire.clone();

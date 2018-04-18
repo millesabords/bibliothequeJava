@@ -97,7 +97,7 @@ public class Bibliotheque implements Cloneable{
 	 * @param titre
 	 * @return Livre
 	 */
-	public Livre rechercheParTitre(String titre) {
+	public Document rechercheParTitre(String titre) {
 		Iterator<Document> itr = documents.iterator();
 		
 		while (itr.hasNext()) {
@@ -116,7 +116,7 @@ public class Bibliotheque implements Cloneable{
 	 * @return Boolean
 	 */
 	public Boolean suppressionParTitre(String titre) {
-		Livre recherche = rechercheParTitre(titre);
+		Document recherche = rechercheParTitre(titre);
 		
 		if(recherche == null) {
 			System.err.println("Erreur: le document demande ne peut etre supprime car il n'existe pas: " + titre);
